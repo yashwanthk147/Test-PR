@@ -14,11 +14,13 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    git config --global user.name "yashwanthk147"
-    git config --global user.email "yashwanthkotha147@gmail.com"
-    git config --global github.token "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"
+    #git config --global user.name "yashwanthk147"
+    #git config --global user.email "yashwanthkotha147@gmail.com"
+    #git config --global github.token "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"
 
-    git remote add origin https://github.com/yashwanthk147
-    git clone https://github.com/yashwanthk147/Test-PR.git
+    #git remote add origin https://github.com/yashwanthk147
+    #git clone https://github.com/yashwanthk147/Test-PR.git
+    git branch
+    git status
     git log -p --shortstat --format="%h, %f" main...v1.0.1 >git_commits_log5.txt
   displayName: 'Run a multi-line script'
