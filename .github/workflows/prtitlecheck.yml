@@ -1,0 +1,27 @@
+name: 'CI'
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+
+jobs:
+  PRTitleValidation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          # Manual update required below for a specific project. If project JIRA ticket ID is SA-1, then please update "SA" as value to below parameter
+          projectID="JIRA"
+          ls -l
+          echo "$GITHUB_CONTEXT" >> testjson.yaml
+          ls -l
+          cat testjson.yaml
+          lineStart=$(jq -r .event.pull_request.title testjson.yaml |grep -E $projectID-[0-9]{1})
+          echo $lineStart
+          if [[ $lineStart == '""' ]]; then echo "Title doesnt have ticket number in the start. Please add"; exit 1; fi

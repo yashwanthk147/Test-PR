@@ -1,0 +1,16 @@
+{
+  "LABEL": {
+    "name": "PR title to be started with ticket number",
+    "color": "EEEEEE"
+  },
+  "CHECKS": {
+    "regexp": "^[A-Z]{1,2}-[0-9]{0,2}"
+    "regexpFlags": "i",
+    "ignoreLabels" : ["ignore-label"]
+  },
+  "MESSAGES": {
+    "success": "All OK",
+    "failure": "Failing CI test",
+    "notice": ""
+  }
+}
