@@ -12,5 +12,5 @@ pool:
 steps:
 - script: |
     git branch -a
-    git log -p --shortstat --format="%h, %f" main...v1.0.1 >git_commits_log5.txt
+    git log -p --shortstat --format="%h, %f" master...v1.0.1 >git_commits_log5.txt
   displayName: 'Run a multi-line script'
