@@ -22,6 +22,7 @@ steps:
 
     git remote add origin https://github.com/yashwanthk147
     git clone https://github.com/yashwanthk147/Test-PR.git
+    git checkout main
     git branch
     git log -p --shortstat --format="%h, %f" main...v1.0.1 >git_commits_log5.txt
   displayName: 'Run a multi-line script'
