@@ -12,3 +12,10 @@ steps:
     git branch -a
     git log -p --shortstat --format="%h, %f" origin/master...1.0.1 >git_commits_log5.txt
   displayName: 'Run a multi-line script'
+
+steps:
+- script: |
+    cd /home/ubuntu/myagent/_work/2/s
+    chmod +x /home/ubuntu/myagent/_work/2/s/indent.py
+    python3 indent.py "git_commits_log5.txt" "git_commits_log6.txt"
+  displayName: 'Run a multi-line script'
