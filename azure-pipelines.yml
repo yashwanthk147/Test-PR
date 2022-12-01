@@ -15,6 +15,7 @@ steps:
   
 - script: |
     cd /home/ubuntu/myagent/_work/2/s
-    chmod +x /home/ubuntu/myagent/_work/2/s/indent.py
+    cp -r /home/ubuntu/myagent/_work/2/s/git_commits_log5.txt /home/ubuntu/myagent/_work/2/s/indent_python
+    chmod +x /home/ubuntu/myagent/_work/2/s/indent_python/indent.py
     python3 indent.py "git_commits_log5.txt" "git_commits_log6.txt"
   displayName: 'Run a multi-line script'
