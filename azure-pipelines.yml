@@ -6,6 +6,8 @@
 
 pool: AWS
 
+trigger: none
+
 steps:
 - script: |
     pwd
