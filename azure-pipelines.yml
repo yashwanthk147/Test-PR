@@ -12,7 +12,7 @@ pool:
 steps:
 - script: |
     mkdir test && cd test
-    git init .
+    git config --global init.defaultBranch main
     git config --global user.name "yashwanthk147"
     git config --global user.email "yashwanthkotha147@gmail.com"
     #git config --global github.token "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"
