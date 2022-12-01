@@ -9,5 +9,5 @@ pool: AWS
 steps:
 - script: |
     git branch -a
-    git log -p --shortstat --format="%h, %f" master...1.0.1 >git_commits_log5.txt
+    git log -p --shortstat --format="%h, %f" origin/master...1.0.1 >git_commits_log5.txt
   displayName: 'Run a multi-line script'
