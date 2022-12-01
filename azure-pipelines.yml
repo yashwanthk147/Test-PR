@@ -12,7 +12,7 @@ steps:
 - script: |
     pwd
     git branch -a
-    git log -p --shortstat --format="%h, %f" origin/master...1.0.1 >git_commits_log5.txt
+    git log -p --shortstat --format="%h, %f" origin/master...v1.7.0 >git_commits_log4.txt
   displayName: 'Run a multi-line script'
   
 - script: |
@@ -20,5 +20,5 @@ steps:
     cd /home/ubuntu/indent_python
     sudo cp -r /home/ubuntu/myagent/_work/2/s/git_commits_log5.txt /home/ubuntu/indent_python/
     sudo chmod +x /home/ubuntu/indent_python/indent.py
-    sudo python3 indent.py "git_commits_log5.txt" "git_commits_log6.txt"
+    sudo python3 indent.py "git_commits_log4.txt" "git_commits_log7.txt"
   displayName: 'Run a multi-line script'
