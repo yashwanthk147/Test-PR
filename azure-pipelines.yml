@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+
+pool: AWS
+
+trigger: none
+
+steps:
+- script: |
+    pwd
+    git branch -a
+    git log -p --shortstat --format="%h, %f" origin/master...v1.7.0 >git_commits_log5.txt
+  displayName: 'Run a multi-line script'
+  
+- script: |
+    python3 --version
+    cd /home/ubuntu/indent_python
+    sudo cp -r /home/ubuntu/myagent/_work/2/s/git_commits_log5.txt /home/ubuntu/indent_python/
+    sudo chmod +x /home/ubuntu/indent_python/indent.py
+    sudo python3 indent.py "git_commits_log5.txt" "git_commits_log6.txt"
+  displayName: 'Run a multi-line script'
