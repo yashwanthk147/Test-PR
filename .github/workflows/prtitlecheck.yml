@@ -21,6 +21,9 @@ jobs:
           ls -l
           echo "$GITHUB_CONTEXT" >> testjson.yaml
           ls -l
-          cat testjson.yaml
-          lineStart=$(jq -r .event.pull_request.title testjson.yaml |grep -E $projectID-[0-9]{1})
-          if [[ -z $lineStart ]]; then echo "Pull request title does not start with a JIRA ticket ID in the format of '$projectID-<number>'. Please update the pull request title and try again."; exit 1; fi
+          try {
+            lineStart=$(jq -r .event.pull_request.title testjson.yaml |grep -E $projectID-[0-9]{1})
+          } catch {
+            echo "Pull request title does not start with a JIRA ticket ID in the format of '$projectID-<number>'. Please update the pull request title and try again."
+            exit 1
+          }
