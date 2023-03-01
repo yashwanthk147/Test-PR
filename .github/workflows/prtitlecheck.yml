@@ -23,4 +23,4 @@ jobs:
           ls -l
           cat testjson.yaml
           lineStart=$(jq -r .event.pull_request.title testjson.yaml |grep -E $projectID-[0-9]{1})
-          if [[ -z $lineStart ]]; then echo "Title doesnt have ticket number in the start. Please add"; exit 1; fi
+          if [[ -z $lineStart ]]; then echo "Pull request title does not start with a JIRA ticket ID in the format of '$projectID-<number>'. Please update the pull request title and try again."; exit 1; fi
