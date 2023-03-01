@@ -23,5 +23,4 @@ jobs:
           ls -l
           cat testjson.yaml
           lineStart=$(jq -r .event.pull_request.title testjson.yaml |grep -E $projectID-[0-9]{1})
-          echo $lineStart
-          if [[ $lineStart == '""' ]]; then echo "Title doesnt have ticket number in the start. Please add"; exit 1; fi
+          if [[ -z $lineStart ]]; then echo "Title doesnt have ticket number in the start. Please add"; exit 1; fi
